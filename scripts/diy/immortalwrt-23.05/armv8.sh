@@ -6,6 +6,7 @@ sed -i 's/ImmortalWrt/OpenWrt/g' package/base-files/files/bin/config_generate
 
 # 修改opkg源
 echo "src/gz openwrt_kiddin9 https://dl.openwrt.ai/latest/packages/aarch64_cortex-a53/kiddin9" >> package/system/opkg/files/customfeeds.conf
+echo "src/gz mihomo https://morytyann.github.io/OpenWrt-mihomo/aarch64_generic/mihomo" >> package/system/opkg/files/customfeeds.conf
 
 # firewall4的turboacc
 git_sparse_clone() {

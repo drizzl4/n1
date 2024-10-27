@@ -40,7 +40,7 @@ rm_package "zerotier"
 # 添加package
 git clone -q --depth=1 https://github.com/sbwml/luci-app-alist.git package/alist
 git clone -q --depth=1 https://github.com/sbwml/luci-app-mosdns.git package/mosdns
-git clone -q --depth=1 https://github.com/sbwml/v2ray-geodata.git package/v2ray-geodata
+# git clone -q --depth=1 https://github.com/sbwml/v2ray-geodata.git package/v2ray-geodata
 git clone -q --depth=1 https://github.com/sirpdboy/luci-app-advanced.git package/luci-app-advanced
 git clone -q --depth=1 https://github.com/sirpdboy/luci-app-autotimeset.git package/luci-app-autotimeset
 git clone -q --depth=1 https://github.com/sirpdboy/luci-app-partexp.git package/luci-app-partexp
@@ -63,7 +63,7 @@ git_sparse_clone master https://github.com/kiddin9/openwrt-packages.git luci-app
 git_sparse_clone master https://github.com/kiddin9/openwrt-packages.git luci-app-onliner
 git_sparse_clone master https://github.com/linkease/nas-packages.git network/services/ddnsto
 git_sparse_clone master https://github.com/lisaac/luci-app-dockerman.git applications/luci-app-dockerman
-git_sparse_clone master https://github.com/vernesong/OpenClash.git luci-app-openclash
+# git_sparse_clone master https://github.com/vernesong/OpenClash.git luci-app-openclash
 
 git_sparse_clone openwrt-23.05 https://github.com/immortalwrt/luci.git applications/luci-app-ddns-go
 git_sparse_clone openwrt-23.05 https://github.com/immortalwrt/luci.git applications/luci-app-minidlna
