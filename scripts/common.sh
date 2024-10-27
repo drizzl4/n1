@@ -40,7 +40,7 @@ rm_package "zerotier"
 # 添加package
 git clone -q --depth=1 https://github.com/sbwml/luci-app-alist.git package/alist
 git clone -q --depth=1 https://github.com/sbwml/luci-app-mosdns.git package/mosdns
-# git clone -q --depth=1 https://github.com/sbwml/v2ray-geodata.git package/v2ray-geodata
+git clone -q --depth=1 https://github.com/sbwml/v2ray-geodata.git package/v2ray-geodata
 git clone -q --depth=1 https://github.com/sirpdboy/luci-app-advanced.git package/luci-app-advanced
 git clone -q --depth=1 https://github.com/sirpdboy/luci-app-autotimeset.git package/luci-app-autotimeset
 git clone -q --depth=1 https://github.com/sirpdboy/luci-app-partexp.git package/luci-app-partexp
@@ -63,7 +63,7 @@ git_sparse_clone master https://github.com/kiddin9/openwrt-packages.git luci-app
 git_sparse_clone master https://github.com/kiddin9/openwrt-packages.git luci-app-onliner
 git_sparse_clone master https://github.com/linkease/nas-packages.git network/services/ddnsto
 git_sparse_clone master https://github.com/lisaac/luci-app-dockerman.git applications/luci-app-dockerman
-# git_sparse_clone master https://github.com/vernesong/OpenClash.git luci-app-openclash
+git_sparse_clone master https://github.com/vernesong/OpenClash.git luci-app-openclash
 
 git_sparse_clone openwrt-23.05 https://github.com/immortalwrt/luci.git applications/luci-app-ddns-go
 git_sparse_clone openwrt-23.05 https://github.com/immortalwrt/luci.git applications/luci-app-minidlna
@@ -103,12 +103,10 @@ find package/*/ -maxdepth 2 -path "*/Makefile" | xargs -i sed -i 's/PKG_SOURCE_U
 sed -i 's/services/control/g' feeds/luci/applications/luci-app-eqos/root/usr/share/luci/menu.d/*.json
 sed -i 's/services/control/g' feeds/luci/applications/luci-app-nft-qos/luasrc/controller/*.lua
 sed -i 's/services/nas/g' feeds/luci/applications/luci-app-ksmbd/root/usr/share/luci/menu.d/*.json
-# sed -i 's/services/vpn/g' package/luci-app-openclash/luasrc/controller/*.lua
-# sed -i 's/services/vpn/g' package/luci-app-openclash/luasrc/model/cbi/openclash/*.lua
-# sed -i 's/services/vpn/g' package/luci-app-openclash/luasrc/view/openclash/*.htm
-# sed -i 's|admin/network|admin/control|g' package/luci-app-sqm/root/usr/share/luci/menu.d/*.json
-
-
+sed -i 's/services/vpn/g' package/luci-app-openclash/luasrc/controller/*.lua
+sed -i 's/services/vpn/g' package/luci-app-openclash/luasrc/model/cbi/openclash/*.lua
+sed -i 's/services/vpn/g' package/luci-app-openclash/luasrc/view/openclash/*.htm
+sed -i 's|admin/network|admin/control|g' package/luci-app-sqm/root/usr/share/luci/menu.d/*.json
 
 # 修改插件名字
 replace_text() {
