@@ -9,27 +9,27 @@ on:
         default: "immortalwrt-21.02"
         type: choice
         options:
-          - immortalwrt-21.02
           - immortalwrt-23.05
+          - immortalwrt-21.02
       openwrt_board:
         description: "Select device board"
         required: false
         default: "h28k"
         type: choice
         options:
-          - h28k
           - s905d
+          - h28k
       openwrt_kernel:
         description: "Select kernel version"
         required: false
         default: "5.10.y"
         type: choice
         options:
+          - 6.6.y
           - 5.4.y
           - 5.10.y
           - 5.15.y
           - 6.1.y
-          - 6.6.y
       auto_kernel:
         description: "Auto use the latest kernel"
         required: false
