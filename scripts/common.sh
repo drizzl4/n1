@@ -68,6 +68,8 @@ git_sparse_clone main https://github.com/ophub/luci-app-amlogic.git luci-app-aml
 # git_sparse_clone master https://github.com/linkease/nas-packages.git network/services/ddnsto
 git_sparse_clone master https://github.com/lisaac/luci-app-dockerman.git applications/luci-app-dockerman
 git_sparse_clone master https://github.com/vernesong/OpenClash.git luci-app-openclash
+git_sparse_clone master https://github.com/rufengsuixing/luci-app-adguardhome.git luci-app-adguardhome
+
 
 # git_sparse_clone master https://github.com/immortalwrt/luci.git applications/luci-app-ddns-go
 # git_sparse_clone master https://github.com/immortalwrt/luci.git applications/luci-app-minidlna
@@ -79,6 +81,7 @@ git_sparse_clone master https://github.com/immortalwrt/packages.git net/miniupnp
 git_sparse_clone master https://github.com/immortalwrt/packages.git net/miniupnpd
 git_sparse_clone master https://github.com/immortalwrt/packages.git net/smartdns
 git_sparse_clone master https://github.com/immortalwrt/packages.git net/sqm-scripts
+git_sparse_clone master https://github.com/immortalwrt/packages.git net/adguardhome
 
 # requires golang latest version
 rm -rf feeds/packages/lang/golang
@@ -130,7 +133,7 @@ replace_text() {
 replace_text "Argon 主题设置" "主题设置"
 # replace_text "DDNS-Go" "DDNSGO"
 # replace_text "DDNSTO 远程控制" "DDNSTO"
-replace_text "KMS 服务器" "KMS激活"
+# replace_text "KMS 服务器" "KMS激活"
 # replace_text "QoS Nftables 版" "QoS管理"
 replace_text "SQM 队列管理" "SQM管理"
 replace_text "动态 DNS" "动态DNS"
