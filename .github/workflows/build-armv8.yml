@@ -6,7 +6,7 @@ on:
       source_branch:
         description: "Select the source branch"
         required: false
-        default: "immortalwrt-21.02"
+        default: "immortalwrt-24.10"
         type: choice
         options:
           - immortalwrt-21.02
@@ -21,7 +21,7 @@ on:
       openwrt_board:
         description: "Select device board"
         required: false
-        default: "h28k"
+        default: "s905d"
         type: choice
         options:
           - h28k
@@ -29,7 +29,7 @@ on:
       openwrt_kernel:
         description: "Select kernel version"
         required: false
-        default: "5.10.y"
+        default: "6.6.y"
         type: choice
         options:
           - 5.4.y
@@ -45,11 +45,11 @@ on:
       openwrt_ip:
         description: "Select default ip"
         required: false
-        default: "10.10.10.1"
+        default: "192.168.6.6"
         type: choice
         options:
           - 10.10.10.1
-          - 10.10.11.1
+          - 192.168.6.6
 
 env:
   CONFIG_FILE: configs/${{ inputs.source_branch }}/${{ inputs.openwrt_target }}.config
