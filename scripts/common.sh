@@ -5,7 +5,6 @@ rm_package() {
     find ./ -maxdepth 4 -iname "$1" -type d | xargs rm -rf || echo -e "\e[31mNot found [$1]\e[0m"
 }
 
-rm_package "*adguardhome"
 rm_package "*advanced"
 rm_package "*alist"
 rm_package "*amlogic"
@@ -65,6 +64,8 @@ git_sparse_clone openwrt-23.05 https://github.com/immortalwrt/packages.git multi
 git_sparse_clone openwrt-23.05 https://github.com/immortalwrt/packages.git net/miniupnpd
 # git_sparse_clone openwrt-23.05 https://github.com/immortalwrt/packages.git net/smartdns
 git_sparse_clone openwrt-23.05 https://github.com/immortalwrt/packages.git net/zerotier
+git_sparse_clone openwrt-23.05 https://github.com/immortalwrt/packages.git net/mosdns
+
 
 # requires golang latest version
 rm -rf feeds/packages/lang/golang
