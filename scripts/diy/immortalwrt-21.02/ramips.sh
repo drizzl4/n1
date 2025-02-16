@@ -1,9 +1,5 @@
 #!/bin/bash
 
-# 修改默认IP和hostname
-sed -i 's/192.168.1.1/10.10.11.1/g' package/base-files/files/bin/config_generate
-sed -i 's/ImmortalWrt/OpenWrt/g' package/base-files/files/bin/config_generate
-
 # 修改opkg源
 echo "src/gz openwrt_kiddin9 https://dl.openwrt.ai/latest/packages/mipsel_24kc/kiddin9" >> package/system/opkg/files/customfeeds.conf
 
@@ -12,6 +8,7 @@ rm_package() {
 }
 
 rm_package "*ddns-go"
+rm_package "zerotier"
 
 git_sparse_clone() {
     branch="$1" repourl="$2" repodir="$3"
@@ -25,6 +22,7 @@ git_sparse_clone() {
 
 git_sparse_clone openwrt-21.02 https://github.com/immortalwrt/luci.git applications/luci-app-ddns-go
 git_sparse_clone openwrt-21.02 https://github.com/immortalwrt/packages.git net/ddns-go
+git_sparse_clone main https://github.com/v8040/openwrt-packages.git zerotier
 
 find package/*/ -maxdepth 2 -path "*/Makefile" | xargs -i sed -i 's/..\/..\/luci.mk/$(TOPDIR)\/feeds\/luci\/luci.mk/g' {}
 find package/*/ -maxdepth 2 -path "*/Makefile" | xargs -i sed -i 's/..\/..\/lang\/golang\/golang-package.mk/$(TOPDIR)\/feeds\/packages\/lang\/golang\/golang-package.mk/g' {}
