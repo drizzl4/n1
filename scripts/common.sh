@@ -50,6 +50,8 @@ git clone -q --depth=1 https://github.com/sirpdboy/luci-app-advanced.git package
 git clone -q --depth=1 https://github.com/sirpdboy/luci-app-partexp.git package/luci-app-partexp
 git clone -q --depth=1 https://github.com/sirpdboy/netspeedtest.git package/luci-app-netspeedtest
 # git clone -q --depth=1 https://github.com/zzsj0928/luci-app-pushbot.git package/luci-app-pushbot
+git clone -q --depth=1 https://github.com/rufengsuixing/luci-app-adguardhome.git package/luci-app-adguardhome
+
 
 git_sparse_clone() {
     branch="$1" repourl="$2" repodir="$3"
@@ -68,8 +70,6 @@ git_sparse_clone main https://github.com/ophub/luci-app-amlogic.git luci-app-aml
 # git_sparse_clone master https://github.com/linkease/nas-packages.git network/services/ddnsto
 git_sparse_clone master https://github.com/lisaac/luci-app-dockerman.git applications/luci-app-dockerman
 git_sparse_clone master https://github.com/vernesong/OpenClash.git luci-app-openclash
-git_sparse_clone master https://github.com/rufengsuixing/luci-app-adguardhome.git luci-app-adguardhome
-
 
 # git_sparse_clone master https://github.com/immortalwrt/luci.git applications/luci-app-ddns-go
 # git_sparse_clone master https://github.com/immortalwrt/luci.git applications/luci-app-minidlna
@@ -81,7 +81,6 @@ git_sparse_clone master https://github.com/immortalwrt/packages.git net/miniupnp
 git_sparse_clone master https://github.com/immortalwrt/packages.git net/miniupnpd
 git_sparse_clone master https://github.com/immortalwrt/packages.git net/smartdns
 git_sparse_clone master https://github.com/immortalwrt/packages.git net/sqm-scripts
-git_sparse_clone master https://github.com/immortalwrt/packages.git net/adguardhome
 
 # requires golang latest version
 rm -rf feeds/packages/lang/golang
