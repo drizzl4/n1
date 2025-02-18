@@ -42,14 +42,16 @@ rm_package "miniupnpd"
 # 添加package
 git clone -q --depth=1 https://github.com/jerrykuku/luci-app-argon-config.git package/luci-app-argon-config
 git clone -q --depth=1 https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
-git clone -q --depth=1 https://github.com/sbwml/luci-app-alist.git package/alist
+# git clone -q --depth=1 https://github.com/sbwml/luci-app-alist.git package/alist
 git clone -q --depth=1 https://github.com/sbwml/luci-app-mosdns.git package/mosdns
 git clone -q --depth=1 https://github.com/sbwml/v2ray-geodata.git package/v2ray-geodata
 git clone -q --depth=1 https://github.com/sirpdboy/luci-app-advanced.git package/luci-app-advanced
-git clone -q --depth=1 https://github.com/sirpdboy/luci-app-autotimeset.git package/luci-app-autotimeset
+# git clone -q --depth=1 https://github.com/sirpdboy/luci-app-autotimeset.git package/luci-app-autotimeset
 git clone -q --depth=1 https://github.com/sirpdboy/luci-app-partexp.git package/luci-app-partexp
 git clone -q --depth=1 https://github.com/sirpdboy/netspeedtest.git package/luci-app-netspeedtest
-git clone -q --depth=1 https://github.com/zzsj0928/luci-app-pushbot.git package/luci-app-pushbot
+# git clone -q --depth=1 https://github.com/zzsj0928/luci-app-pushbot.git package/luci-app-pushbot
+# git clone -q --depth=1 https://github.com/rufengsuixing/luci-app-adguardhome.git package/luci-app-adguardhome
+
 
 git_sparse_clone() {
     branch="$1" repourl="$2" repodir="$3"
@@ -61,20 +63,20 @@ git_sparse_clone() {
     echo -e "\e[31mFailed to sparse clone $repodir from $repourl($branch).\e[0m"
 }
 
-git_sparse_clone main https://github.com/kiddin9/kwrt-packages.git luci-app-control-timewol
+# git_sparse_clone main https://github.com/kiddin9/kwrt-packages.git luci-app-control-timewol
 git_sparse_clone main https://github.com/kiddin9/kwrt-packages.git luci-app-onliner
-git_sparse_clone main https://github.com/linkease/nas-packages-luci.git luci/luci-app-ddnsto
+# git_sparse_clone main https://github.com/linkease/nas-packages-luci.git luci/luci-app-ddnsto
 git_sparse_clone main https://github.com/ophub/luci-app-amlogic.git luci-app-amlogic
-git_sparse_clone master https://github.com/linkease/nas-packages.git network/services/ddnsto
+# git_sparse_clone master https://github.com/linkease/nas-packages.git network/services/ddnsto
 git_sparse_clone master https://github.com/lisaac/luci-app-dockerman.git applications/luci-app-dockerman
 git_sparse_clone master https://github.com/vernesong/OpenClash.git luci-app-openclash
 
-git_sparse_clone master https://github.com/immortalwrt/luci.git applications/luci-app-ddns-go
-git_sparse_clone master https://github.com/immortalwrt/luci.git applications/luci-app-minidlna
+# git_sparse_clone master https://github.com/immortalwrt/luci.git applications/luci-app-ddns-go
+# git_sparse_clone master https://github.com/immortalwrt/luci.git applications/luci-app-minidlna
 git_sparse_clone master https://github.com/immortalwrt/luci.git applications/luci-app-smartdns
 git_sparse_clone master https://github.com/immortalwrt/luci.git applications/luci-app-sqm
-git_sparse_clone master https://github.com/immortalwrt/packages.git multimedia/minidlna
-git_sparse_clone master https://github.com/immortalwrt/packages.git net/ddns-go
+# git_sparse_clone master https://github.com/immortalwrt/packages.git multimedia/minidlna
+# git_sparse_clone master https://github.com/immortalwrt/packages.git net/ddns-go
 git_sparse_clone master https://github.com/immortalwrt/packages.git net/miniupnpc
 git_sparse_clone master https://github.com/immortalwrt/packages.git net/miniupnpd
 git_sparse_clone master https://github.com/immortalwrt/packages.git net/smartdns
@@ -104,9 +106,9 @@ find package/*/ -maxdepth 2 -path "*/Makefile" | xargs -i sed -i 's/PKG_SOURCE_U
 find package/*/ -maxdepth 2 -path "*/Makefile" | xargs -i sed -i 's/PKG_SOURCE_URL:=@GHCODELOAD/PKG_SOURCE_URL:=https:\/\/codeload.github.com/g' {}
 
 # 调整菜单
-sed -i 's/services/control/g' feeds/luci/applications/luci-app-eqos/root/usr/share/luci/menu.d/*.json
-sed -i 's/services/control/g' feeds/luci/applications/luci-app-nft-qos/luasrc/controller/*.lua
-sed -i 's/services/nas/g' feeds/luci/applications/luci-app-ksmbd/root/usr/share/luci/menu.d/*.json
+# sed -i 's/services/control/g' feeds/luci/applications/luci-app-eqos/root/usr/share/luci/menu.d/*.json
+# sed -i 's/services/control/g' feeds/luci/applications/luci-app-nft-qos/luasrc/controller/*.lua
+# sed -i 's/services/nas/g' feeds/luci/applications/luci-app-ksmbd/root/usr/share/luci/menu.d/*.json
 sed -i 's/services/vpn/g' package/luci-app-openclash/luasrc/controller/*.lua
 sed -i 's/services/vpn/g' package/luci-app-openclash/luasrc/model/cbi/openclash/*.lua
 sed -i 's/services/vpn/g' package/luci-app-openclash/luasrc/view/openclash/*.htm
@@ -128,10 +130,10 @@ replace_text() {
 }
 
 replace_text "Argon 主题设置" "主题设置"
-replace_text "DDNS-Go" "DDNSGO"
-replace_text "DDNSTO 远程控制" "DDNSTO"
-replace_text "KMS 服务器" "KMS激活"
-replace_text "QoS Nftables 版" "QoS管理"
+# replace_text "DDNS-Go" "DDNSGO"
+# replace_text "DDNSTO 远程控制" "DDNSTO"
+# replace_text "KMS 服务器" "KMS激活"
+# replace_text "QoS Nftables 版" "QoS管理"
 replace_text "SQM 队列管理" "SQM管理"
 replace_text "动态 DNS" "动态DNS"
 replace_text "网络存储" "NAS"
